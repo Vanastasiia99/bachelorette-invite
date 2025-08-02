@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Леночка, приглашение на волшебный девичник!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;font-family:'Poppins',sans-serif;
+            background:url('https://p4.wallpaperbetter.com/wallpaper/860/658/359/flowers-background-wood-flowers-lilac-hd-wallpaper-preview.jpg') center/cover fixed;
+            color:#4B2D6C;scroll-behavior:smooth;
+        }
+        h1,h2{font-family:'Dancing Script',cursive;margin:0;}
+        header{
+            padding:80px 16px;text-align:center;background:rgba(246,243,250,.85);
+        }
+        header h1{font-size:2.8em;color:#6A46A2;margin-bottom:18px;}
+        header p{font-size:1.1em;max-width:520px;margin:0 auto 24px;}
+        .button{
+            display:inline-block;padding:14px 32px;border-radius:50px;
+            background:#7E57C2;color:#fff;text-decoration:none;font-size:1.1em;font-weight:600;
+            box-shadow:0 4px 10px rgba(126,87,194,.3);transition:.3s;cursor:pointer;
+        }
+        .button:hover{background:#6A46A2;transform:translateY(-2px);}
+        section{
+            padding:70px 16px;text-align:center;background:rgba(255,255,255,.85);
+        }
+        section:nth-of-type(even){background:rgba(246,243,250,.9);}
+        section h2{font-size:2em;color:#6A46A2;margin-bottom:12px;}
+        section p{font-size:1.1em;max-width:520px;margin:0 auto;}
+        .tips{padding:60px 16px;background:rgba(246,243,250,.95);text-align:center;}
+        .tips p{margin:10px 0;font-size:1.1em;}
+        .heart{position:fixed;font-size:24px;color:#E57373;animation:float 3s linear forwards;}
+        @keyframes float{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-100vh) scale(1.5);opacity:0;}}
+
+        @media(max-width:600px){
+            header h1{font-size:2.2em;}
+            section h2{font-size:1.6em;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Леночка, девичник зовёт!</h1>
+    <p>Мы готовим для тебя волшебный день, полный нежности, сюрпризов и смеха. Приходи разделить эти мгновения вместе с нами!</p>
+    <!-- Кнопка: скроллит к программе и включает музыку -->
+    <a href="#event1" class="button" onclick="playMusic()">Посмотреть программу</a>
+</header>
+
+<section id="event1">
+    <h2>11:30 — Парк Горького</h2>
+    <p>В 11:30 встречаемся у главного входа в Парк Горького. Немного погуляем, сделаем красивые фото и зарядимся праздничным настроением.</p>
+</section>
+
+<section id="event2">
+    <h2>15:00 — Сюрприз №1</h2>
+    <p>К 15:00 отправимся на наш первый секрет. Он будет ароматным, вкусным и очень творческим — детали раскроем на месте!</p>
+</section>
+
+<section id="event3">
+    <h2>18:00 — Сюрприз №2</h2>
+    <p>В 18:00 тебя ждёт вечерний сюрприз с ветром в волосах и брызгами воды. Маленькое приключение, о котором мы будем вспоминать ещё долго.</p>
+</section>
+
+<div class="tips">
+    <p>Возьми удобную обувь и любимую улыбку, а мы позаботимся обо всём остальным.</p>
+    <p>Будет здорово, если добавишь к образу немного сиреневого — так мы будем в одном настроении!</p>
+    <button class="button" onclick="launchHearts()">Я с вами!</button>
+</div>
+
+<script>
+// Аудио
+const audio=new Audio('https://files.catbox.moe/f8y0vg.mp3');audio.loop=true;
+function playMusic(){audio.currentTime=0;audio.play().catch(e=>console.log('music error',e));}
+// Сердечки
+function launchHearts(){for(let i=0;i<20;i++){const h=document.createElement('div');h.className='heart';h.textContent='❤';h.style.left=Math.random()*100+'vw';h.style.bottom=0;h.style.fontSize=20+Math.random()*20+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),3000);}}
+</script>
+
+</body>
+</html>
