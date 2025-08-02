@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Девичник [Имя]</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #4B2D6C;
+            text-align: center;
+        }
+        header {
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .photo-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #E8E1F2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 1em;
+            color: #7B6790;
+        }
+        .schedule {
+            margin: 40px 20px;
+        }
+        .schedule h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .event {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .tips {
+            background-color: #F6F3FA;
+            padding: 30px 20px;
+            margin: 40px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #7E57C2;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #6A46A2;
+        }
+        footer {
+            margin: 40px 0 20px;
+            font-size: 0.9em;
+            color: #8C8C8C;
+        }
+        /* Простая анимация появления */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="fade-in">
+        <h1>Девичник [Имя]</h1>
+        <div class="photo-placeholder">Фото невесты</div>
+        <p>Мы приготовили для тебя особенный день — полный сюрпризов, эмоций и тёплых моментов!</p>
+    </header>
+
+    <section class="schedule fade-in">
+        <h2>Программа дня</h2>
+        <div class="event"><strong>11:30</strong> — Парк Горького (начало дня, прогулка)</div>
+        <div class="event"><strong>15:00</strong> — Сюрприз №1 (связано с вкусом)</div>
+        <div class="event"><strong>18:00</strong> — Сюрприз №2 (связано с ветром и водой)</div>
+    </section>
+
+    <section class="tips fade-in">
+        <p>На вторую часть дня пригодится удобная одежда и обувь.</p>
+        <p>Добавь в образ сиреневые цветы — они объединят нас в этот день.</p>
+    </section>
+
+    <a href="#" class="button fade-in">Я иду!</a>
+
+    <footer>
+        <p>Ждём тебя 11:30 в Парке Горького</p>
+    </footer>
+
+    <script>
+        // Анимация появления при скролле
+        const elements = document.querySelectorAll('.fade-in');
+        function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.9;
+            elements.forEach(el => {
+                const boxTop = el.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
+</body>
+</html>
